@@ -80,7 +80,7 @@ Route::prefix('/lates')->name('lates.')->group(function(){
     Route::delete('/{id}', [LatesController::class, 'destroy'])->name('delete');
     Route::get('/{id}/detail', [LatesController::class, 'detail'])->name('detail');
     Route::get('/{id}/generate-pdf', [LatesController::class, 'generatePDF'])->name('generatePDF');
-    Route::get('/download-excel', [LatesController::class, 'exportExcel'])->name('export-excel');
+    Route::get('/download/excel', [LatesController::class, 'exportExcel'])->name('export-excel');
 });
 Route::prefix('/students')->name('students.')->group(function(){
     Route::get('/', [StudentsController::class, 'index'])->name('home');

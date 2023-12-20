@@ -86,14 +86,14 @@ class LatesController extends Controller
             'student_id' => 'required|exists:students,id',
             'date_time_late' => 'required',
             'information' => 'required',
-            'bukti' => 'required|image',
+            'bukti' => 'required|image|file',
     ]);
 
         Late::where('id', $id)->update([
             'student_id' => $request->student_id,
             'date_time_late' => $request->date_time_late,
             'information' => $request->information,
-            'bukti' => $request->bukti,
+            'bukti' => $request->file('bukti')->store('bukti-images'),
         ]);
 
         return redirect()->route('lates.home')->with('success', 'Berhasil mengubah data!');
